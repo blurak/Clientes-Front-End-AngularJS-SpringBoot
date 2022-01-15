@@ -1,0 +1,10 @@
+.footer{
+  position: fixed;
+  height: 40px;
+    left: 0;
+   bottom: 0;
+   width: 100%;
+}
+p{
+  margin: 0 auto;
+}

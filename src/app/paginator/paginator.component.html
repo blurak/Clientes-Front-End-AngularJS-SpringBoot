@@ -1,0 +1,31 @@
+<nav aria-label="Page navigation example">
+  <ul *ngIf="paginas?.length > 0" class="pagination justify-content-center">
+    <li class="page-item" [ngClass]="paginador.number== 0?'disabled':''" >
+      <a class="page-link bg-dark text-light" [routerLink]="['/clientes/page', paginador.number-1,cantidad]">Anterior </a>
+    </li>
+    <li class="page-item" *ngFor="let pagina of paginas" [ngClass]="pagina-1 == paginador.number?'disabled':''">
+      <span class="page-link text-dark" *ngIf="pagina-1 == paginador.number">{{pagina}}</span>
+      <a class="page-link bg-dark text-light" *ngIf="pagina-1 != paginador.number" [routerLink]="['/clientes/page', pagina-1,cantidad]">{{pagina}}</a>
+    </li>
+    <li class="page-item"[ngClass]="paginador.number>= max-1?'disabled':''">
+      <a class="page-link bg-dark text-light" [routerLink]="['/clientes/page', paginador.number+1,cantidad]">Siguiente </a>
+    </li>
+
+    <p>  &nbsp; &nbsp; &nbsp; Cantida de clientes a listar  &nbsp;<p>
+      <ul class="pagination ">
+        <li  class="page-item" [ngClass]="cantidad == 1?'disabled':''">
+          <button class="page-link bg-dark text-light" (click) ="setCantidad(1,paginador.number)"  >1</button>
+        </li>
+        <li  class="page-item" [ngClass]="cantidad == 2?'disabled':''">
+          <button class="page-link bg-dark text-light" (click) ="setCantidad(2,paginador.number)">2</button>
+        </li>
+        <li  class="page-item" [ngClass]="cantidad == 3?'disabled':''">
+          <button class="page-link bg-dark text-light" (click) ="setCantidad(3,paginador.number)">3</button>
+        </li>
+        <li  class="page-item" [ngClass]="cantidad == 5?'disabled':''">
+          <button class="page-link bg-dark text-light" (click) ="setCantidad(5,paginador.number)" >5</button>
+        </li>
+      </ul>
+  </ul>
+
+</nav>
